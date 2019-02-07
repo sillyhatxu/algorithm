@@ -1,10 +1,12 @@
 package com.sillyhat.algorithm.company.advanceai;
 
 import com.sillyhat.algorithm.company.advanceai.dto.Vertice;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Slf4j
 public class FindingOptimalPath {
 
     public static int getCyclicalMaxWeightSum(Vertice node, Set<String> selectNode){
@@ -57,11 +59,11 @@ public class FindingOptimalPath {
         c.addConnectionVertice(e);
         c.addConnectionVertice(f);
         e.addConnectionVertice(f);
-        System.out.println(getAcyclicMaxWeightSum(a));//O(n)
+        log.info("getAcyclicMaxWeightSum result:{}",getAcyclicMaxWeightSum(a));//O(n)
 
         Vertice g = new Vertice("G",7);
         f.addConnectionVertice(g);
         g.addConnectionVertice(a);
-        System.out.println(getCyclicalMaxWeightSum(a,new HashSet<>()));//O(n)
+        log.info("getCyclicalMaxWeightSum result:{}",getCyclicalMaxWeightSum(a,new HashSet<>()));//O(n)
     }
 }

@@ -1,17 +1,20 @@
 package com.sillyhat.algorithm.company.advanceai;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.*;
 
+@Slf4j
 public class DataStoreAndLoad {
 
     public static void main(String[] args){
         String input = "key1:value1;key2:value2\nkey3:value3\nkey4:value4\nkey5:value5\n";
         Map[] outputMap = load(input);//O(n)
         for(Map map : outputMap){
-            System.out.println(map);
+            log.info("map : {}",map);
         }
         String output = store(outputMap);//O(n)^2
-        System.out.println(output);
+        log.info(output);
     }
 
     private static String store(Map<String,String> [] mapArray){
